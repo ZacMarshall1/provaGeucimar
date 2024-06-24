@@ -26,30 +26,12 @@ function Pacientes() {
     });
   }
 
-  function editarPaciente(paciente) {
-    setPaciente(paciente);
-  }
-
   function alterarPaciente(campo, valor, id) {
     paciente[campo] = valor;
     setPaciente({
       id: id,
       nome: paciente.nome,
     });
-  }
-
-  function salvarPaciente() {
-    if (paciente.id) {
-      axios
-        .put("http://localhost:5218/pacientes/" + paciente.id, paciente)
-        .then(() => {
-          reiniciarEstadoDosObjetos();
-        });
-    } else {
-      axios.post("http://localhost:5218/pacientes", paciente).then(() => {
-        reiniciarEstadoDosObjetos();
-      });
-    }
   }
 
   function excluirPaciente(id) {
@@ -76,14 +58,7 @@ function Pacientes() {
             alterarPaciente(e.target.name, e.target.value, paciente.id);
           }}
         />
-        <button
-          type="button"
-          onClick={() => {
-            salvarPaciente();
-          }}
-        >
-          Salvar
-        </button>
+        <button type="button">Salvar</button>
         <button
           type="button"
           onClick={() => {
@@ -103,28 +78,8 @@ function Pacientes() {
         <td>{paciente.id}</td>
         <td>{paciente.nome}</td>
         <td>
-          <button
-            type="button"
-            onClick={() => {
-              if (
-                window.confirm(
-                  "Confirmar a exclusão do paciente " + paciente.nome + "?"
-                )
-              ) {
-                excluirPaciente(paciente.id);
-              }
-            }}
-          >
-            Excluir
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              editarPaciente(paciente);
-            }}
-          >
-            Editar
-          </button>
+          <button type="button">Excluir</button>
+          <button type="button">Editar</button>
         </td>
       </tr>
     );
