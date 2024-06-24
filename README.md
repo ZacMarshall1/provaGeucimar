@@ -5,25 +5,20 @@
 a) Fazer o download do arquivo .zip ou clonar o repositório:
 
 ```
-git clone https://gitlab.com/gilbriatore/2023/topicos6n/Prj-A1.git
+git clone https://gitlab.com/gilbriatore/2024/prj-a1.git
 ```
 
-b) Abrir o Visual Studio Code e selecionar o folder Prj-A1.
+b) Abrir o folder Prj-A1/back no Visual Code e rodar o backend:
 
-c) Rodar o comando de instalação de pacotes nos folder back e front:
+```
+dotnet ef migrations add "CriarBanco"
+dotnet ef database update
+dotnet run
+```
+
+b) Abrir o folder Prj-A1/front em outra janela do Visual Code e rodar o fontend:
 
 ```
 npm install
-```
-
-d) Rodar a carga de dados na pasta /db:
-
-```
-node CargaDeDados.js
-```
-
-e) Rodar o back e o front com o comando:
-
-```
 npm start
 ```
