@@ -4,7 +4,7 @@ public class BancoDeDados : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
-        builder.UseMySQL("server=localhost;port=3306;database=backnet;user=root;password=");
+        builder.UseMySQL("server=localhost;port=3306;database=backnet;user=root;password=1234");
     }
 
     //dotnet ef migrations add "VersaoInicial"

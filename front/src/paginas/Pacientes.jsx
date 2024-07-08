@@ -18,6 +18,18 @@ function Pacientes() {
     getPacientes();
   }, []);
 
+    //FUNÇÃO PARA EXCLUIR PACIENTE
+  function excluirPaciente(id) {
+    axios.delete("http://localhost:5218/pacientes" + id)
+    .then(() => {
+      setPacientes();
+    });
+  }
+
+  function editarPaciente(paciente) {
+    setPaciente(paciente);
+  }
+
   //Funções para manipulação da entidade principal
   function novoPaciente() {
     setPaciente({
@@ -34,6 +46,16 @@ function Pacientes() {
     });
   }
 
+  //FUNÇÃO PARA SALVAR PACIENTE
+
+  function salvarPaciente() {
+    if (paciente.id) {
+      axios.put("http://localhost:5218/pacientes/" + paciente.id, paciente).then(() => { refresh(); });
+    } else {
+      axios.post("http://localhost:5218/pacientes", paciente).then(() => {refresh });
+    }
+  }
+
   function excluirPaciente(id) {
     axios.delete("http://localhost:5218/pacientes/" + id).then(() => {
       reiniciarEstadoDosObjetos();
@@ -42,31 +64,24 @@ function Pacientes() {
 
   function reiniciarEstadoDosObjetos() {
     setPaciente(null);
-    getPacientes();
+  }
+
+  function onChangePaciente(campo, valor, id) {
+    paciente[campo] = valor;
+    setPaciente({
+      ...paciente,
+        });
   }
 
   //Função para geração do formulário
   function getFormulario() {
     return (
-      <form>
+      <form action="">
         <label>Nome</label>
-        <input
-          type="text"
-          name="nome"
-          value={paciente.nome}
-          onChange={(e) => {
-            alterarPaciente(e.target.name, e.target.value, paciente.id);
-          }}
-        />
-        <button type="button">Salvar</button>
-        <button
-          type="button"
-          onClick={() => {
-            setPaciente(null);
-          }}
-        >
-          Cancelar
-        </button>
+        <input type="text" id="nome" name="nome" value={paciente.nome}
+          onChange={(e) => {onChangePaciente(e.target.name, e.target.value, paciente.id) }}/>
+        <button onClick={() => {salvarPaciente(); }}>Salvar</button>
+        <button onClick={() => {reiniciarEstadoDosObjetos}}>Cancelar</button>
       </form>
     );
   }
@@ -74,12 +89,12 @@ function Pacientes() {
   //Funções para geração da tabela
   function getLinhaDaTabela(paciente) {
     return (
-      <tr key={paciente.id}>
+      <tr>
         <td>{paciente.id}</td>
         <td>{paciente.nome}</td>
         <td>
-          <button type="button">Excluir</button>
-          <button type="button">Editar</button>
+          <button onClick={() => {excluirPaciente(paciente.id) }}>Excluir</button>
+          <button onClick={() => {editarPaciente(paciente) }}>Editar</button>
         </td>
       </tr>
     );

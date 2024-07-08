@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\_ws\\Prj-A1\\back\\backnet.csproj": {}
+    "C:\\_WS\\A1TopicosDeSistemas\\prj-a1\\back\\backnet.csproj": {}
   },
   "projects": {
-    "E:\\_ws\\Prj-A1\\back\\backnet.csproj": {
+    "C:\\_WS\\A1TopicosDeSistemas\\prj-a1\\back\\backnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\_ws\\Prj-A1\\back\\backnet.csproj",
+        "projectUniqueName": "C:\\_WS\\A1TopicosDeSistemas\\prj-a1\\back\\backnet.csproj",
         "projectName": "backnet",
-        "projectPath": "E:\\_ws\\Prj-A1\\back\\backnet.csproj",
-        "packagesPath": "C:\\Users\\gil\\.nuget\\packages\\",
-        "outputPath": "E:\\_ws\\Prj-A1\\back\\obj\\",
+        "projectPath": "C:\\_WS\\A1TopicosDeSistemas\\prj-a1\\back\\backnet.csproj",
+        "packagesPath": "C:\\Users\\ZacM\\.nuget\\packages\\",
+        "outputPath": "C:\\_WS\\A1TopicosDeSistemas\\prj-a1\\back\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\gil\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ZacM\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -45,13 +45,17 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[8.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.6, )"
             },
             "MySql.EntityFrameworkCore": {
               "target": "Package",
@@ -81,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

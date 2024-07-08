@@ -12,6 +12,15 @@ public static class MedicamentosApi
       }
     );
 
+    //ADICIONAR METODO POST
+    group.MapPost("/", async (Medicamento medicamento, BancoDeDados db) =>
+      {
+        db.Medicamentos.Add(medicamento);
+        await db.SaveChangesAsync();
+        return Results.Created($"/medicamentos/{medicamento.Id}", medicamento);
+      }
+    );
+
     group.MapPut("/{id}", async (int id, Medicamento medicamentoAlterado, BancoDeDados db) =>
       {
         var medicamento = await db.Medicamentos.FindAsync(id);
